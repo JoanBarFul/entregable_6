@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bomb
   - Background
   - Ground
   - Obstacle
+  - Right
+  - Left
   layers:
   - Default
   - TransparentFX
