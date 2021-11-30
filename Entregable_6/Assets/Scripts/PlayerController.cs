@@ -15,17 +15,14 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpClip;
     public AudioClip colisionClip;
     public ParticleSystem particlesExplosion;
-    // Start is called before the first frame update
+    
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
         Physics.gravity *= gravityMod;
         playerAudio = GetComponent<AudioSource>();
-        
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !gameOver && transform.position.y < limY)
@@ -34,8 +31,7 @@ public class PlayerController : MonoBehaviour
             playerAudio.PlayOneShot(jumpClip, 1);
         }
         if (transform.position.y >= limY)
-        { transform.position = new Vector3(transform.position.x, limY, transform.position.z); }
-        
+        { transform.position = new Vector3(transform.position.x, limY, transform.position.z); } 
     }
 
     public void OnCollisionEnter(Collision otherCollider)
@@ -45,8 +41,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("GAME OVER");
                 gameOver = true;
-                Destroy(gameObject);
-                
+                Destroy(gameObject);   
             }
             if (otherCollider.gameObject.CompareTag("Obstacle"))
             {
@@ -56,11 +51,7 @@ public class PlayerController : MonoBehaviour
                 gameOver = true;
                 Destroy(gameObject);
                 playerAudio.Stop();
-
             }
-
-
-
         }
     }
 }

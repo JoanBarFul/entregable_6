@@ -11,15 +11,11 @@ public class moveLateral : MonoBehaviour
     
     
     void Start()
-    {
-        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-       
-    }
+    {playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();}
 
 
     void Update()
     {
-      
             if (!playerControllerScript.gameOver)
             { transform.Translate(Vector3.right * speed * Time.deltaTime); }
 
@@ -27,11 +23,5 @@ public class moveLateral : MonoBehaviour
 
             if (transform.position.x >= destroyLimR || transform.position.x <= destroyLimL)
             { Destroy(gameObject); }
-      
-
-      
-        
-
-
     }
 }

@@ -11,21 +11,16 @@ public class SpawnManager : MonoBehaviour
     public int left = 0;
     public int right = 1;
     private Quaternion roffset = Quaternion.Euler(0, 180, 0);
-    //private float spawnRL;
-   
     private Vector3 spawnPos;
     private float ranY;
     public float ranX;
     public PlayerController playerControllerScript;
     
 
-
     void Start()
     {
         InvokeRepeating("Spawner", startDelay, repeatRate);
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-       
-
     }
 
 
@@ -40,26 +35,15 @@ public class SpawnManager : MonoBehaviour
             if (ranX == left)
             {
                 spawnPos = new Vector3(-13, ranY, 0);
-                Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
-                
-            }  
+                Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);  
+            } 
+            
              if (ranX == right)
             {
                 spawnPos = new Vector3(13, ranY, 0);
                 Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation * roffset);
-                
             }
          }
-
-           
-
-
-
-
-
-
-
-
         }
 
     }
