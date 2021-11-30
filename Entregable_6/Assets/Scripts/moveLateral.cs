@@ -25,7 +25,7 @@ public class moveLateral : MonoBehaviour
 
             else { Destroy(gameObject); }
 
-            if (transform.position.x >= destroyLimR)
+            if (transform.position.x >= destroyLimR || transform.position.x <= destroyLimL)
             { Destroy(gameObject); }
       
 

@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         Physics.gravity *= gravityMod;
         playerAudio = GetComponent<AudioSource>();
-       
+        
 
     }
 
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         }
         if (transform.position.y >= limY)
         { transform.position = new Vector3(transform.position.x, limY, transform.position.z); }
+        
     }
 
     public void OnCollisionEnter(Collision otherCollider)
@@ -51,9 +52,10 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("GAME OVER");
                 playerAudio.PlayOneShot(colisionClip, 1);
-                //particlesExplosion.Play();
+                Instantiate(particlesExplosion, gameObject.transform.position, gameObject.transform.rotation);
                 gameOver = true;
                 Destroy(gameObject);
+                playerAudio.Stop();
 
             }
 
